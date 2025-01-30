@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.1",
-    "autoprefixer": "^10.4.20",
     "dotenv": "^16.4.7",
     "openai": "^4.80.1",
     "postcss": "^8.5.1",
