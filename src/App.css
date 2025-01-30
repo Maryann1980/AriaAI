@@ -1,0 +1,40 @@
+.app-container{
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column; 
+}
+
+.footer{
+  margin-top: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-container{
+  display: flex;
+}
+
+.nav-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  position: relative;
+  left: 39%; /* Adjust as needed */
+  top: 20px; /* Optional: Positioning at the top */
+}
+
+.navbar-icon{
+  color: black; /* Icon color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: gray; /* Optional hover effect */
+}
+
+
+

@@ -1,0 +1,60 @@
+/* Base styles */
+.send-button {
+  background-color: rgb(25, 135, 84);
+  color: white;
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.chat-input {
+  padding: 12px 15px;
+  margin: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  border-width: 1px;
+  flex-grow: 1;
+}
+
+.chat-input-container {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .send-button {
+      padding: 10px 15px;
+      font-size: 14px;
+  }
+
+  .chat-input {
+      padding: 10px 12px;
+      font-size: 14px;
+  }
+
+  .chat-input-container {
+      flex-direction: column;
+      margin-bottom: 30px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .send-button {
+      padding: 11px 18px;
+      font-size: 14px;
+  }
+
+  .chat-input {
+      padding: 11px 14px;
+      font-size: 14px;
+  }
+
+  .chat-input-container {
+      margin-bottom: 40px;
+  }
+}

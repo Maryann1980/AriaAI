@@ -1,0 +1,71 @@
+
+.chat-message-user{
+    display: flex;
+    justify-content: end;
+    align-items: start;
+  }
+  
+  .chat-message-robot{
+    display: flex;
+    align-items: start;
+  }
+  
+  .chat-message-text{
+    background-color: rgb(238, 238, 238);
+   padding: 15px 20px;
+   border-radius: 10px;
+   margin-right: 10px;
+   margin-left: 10px;
+   margin-bottom: 20px;
+   max-width: 300px;
+  }
+  
+  .chat-message-profile{
+    width: 45px;
+  }
+
+  .chat-welcome-message{
+    color: grey;
+    text-align: center; 
+     margin-top: 40px;
+     font-size: 20px;
+  }
+
+  .chat-message-text {
+    font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+    font-size: 16px; /* Adjust the size as needed */
+    line-height: 1.6; /* Improve readability with proper line spacing */
+    color: #333; /* Dark gray for better contrast */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    word-wrap: break-word; /* Ensure long words do not overflow */
+  }
+  
+  .chat-message-text strong {
+    font-weight: bold; /* Make text within asterisks bold */
+    color: #000; /* Optional: Darker color for bold text */
+  }
+  
+  .chat-message-text em {
+    font-style: italic; /* Make text within underscores italic */
+  }
+  
+  .chat-message-text code {
+    font-family: 'Courier New', monospace; /* Monospace font for code */
+    background-color: #f4f4f4; /* Light background for code blocks */
+    padding: 2px 4px; /* Add some padding around code */
+    border-radius: 4px; /* Rounded corners for code blocks */
+  }
+  
+  .chat-message-text pre {
+    background-color: #f4f4f4; /* Light background for preformatted text */
+    padding: 10px; /* Add padding around pre blocks */
+    border-radius: 4px; /* Rounded corners for pre blocks */
+    overflow-x: auto; /* Allow horizontal scrolling for long lines */
+  }
+  
+  .chat-message-text blockquote {
+    border-left: 4px solid #ccc; /* Add a left border for blockquotes */
+    padding-left: 10px; /* Add padding to the left of blockquotes */
+    color: #666; /* Gray color for blockquotes */
+    margin: 10px 0; /* Add margin around blockquotes */
+  }
