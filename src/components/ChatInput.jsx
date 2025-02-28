@@ -25,11 +25,13 @@ export function ChatInput({ chatMessages, setChatMessages }) {
     setChatMessages([...newChatMessages, typingMessage]);
 
     try {
-      const response = await fetch('ariaai-backend-production.up.railway.app/generate', {
+      const response = await fetch('https://ariaai-backend-production.up.railway.app/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: inputText }), // Changed 'message' to 'prompt'
+        body: JSON.stringify({ prompt: inputText }),
+        credentials: 'include' // Ensure CORS credentials work
       });
+      
 
       const data = await response.json();
 
