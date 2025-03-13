@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import './ChatInput.css';
+import { useState } from "react";
+import "./ChatInput.css";
 
 export function ChatInput({ chatMessages, setChatMessages }) {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   function saveInputText(event) {
@@ -10,42 +10,50 @@ export function ChatInput({ chatMessages, setChatMessages }) {
   }
 
   async function sendMessage() {
-    if (inputText.trim() === '') return;
+    if (inputText.trim() === "") return;
 
     setIsLoading(true);
 
     const newChatMessages = [
       ...chatMessages,
-      { message: inputText, sender: 'user', id: crypto.randomUUID() },
+      { message: inputText, sender: "user", id: crypto.randomUUID() },
     ];
     setChatMessages(newChatMessages);
 
     // Typing indicator
-    const typingMessage = { message: '...', sender: 'robot', id: crypto.randomUUID() };
+    const typingMessage = {
+      message: "...",
+      sender: "robot",
+      id: crypto.randomUUID(),
+    };
     setChatMessages([...newChatMessages, typingMessage]);
 
     try {
-      const response = await fetch('https://ariaai-backend-production.up.railway.app/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: inputText }),
-        credentials: 'include' // Ensure CORS credentials work
-      });
-      
+      const response = await fetch(
+        "https://ariaai-backend-production.up.railway.app/generate",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: inputText }),
+          credentials: "include", // Ensure CORS credentials work
+        }
+      );
 
       const data = await response.json();
 
       // Remove typing message and update with the actual AI response
-      const updatedChatMessages = newChatMessages.filter((msg) => msg.id !== typingMessage.id);
+      const updatedChatMessages = newChatMessages.filter(
+        (msg) => msg.id !== typingMessage.id
+      );
       setChatMessages([
         ...updatedChatMessages,
-        { message: data.response, sender: 'robot', id: crypto.randomUUID() }, // Ensure 'response' is the correct key returned by the server
+        { message: data.response, sender: "robot", id: crypto.randomUUID() }, // Ensure 'response' is the correct key returned by the server
       ]);
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
     }
 
-    setInputText('');
+    setInputText("");
     setIsLoading(false);
   }
 
@@ -59,8 +67,12 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         className="chat-input"
         disabled={isLoading}
       />
-      <button onClick={sendMessage} className="send-button" disabled={isLoading}>
-        {isLoading ? 'Typing...' : 'Send'}
+      <button
+        onClick={sendMessage}
+        className="send-button"
+        disabled={isLoading || inputText.trim() === ""}
+      >
+        {isLoading ? "Sending..." : "Send"}
       </button>
     </div>
   );

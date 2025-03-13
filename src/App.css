@@ -6,34 +6,86 @@
   display: flex;
   flex-direction: column; 
 }
-
-.footer{
-  margin-top: auto;
-  padding: 10px;
-  text-align: center;
-}
-
-.nav-container{
-  display: flex;
-}
-
+/* Navbar container */
 .nav-container {
   display: flex;
-  gap: 20px;
+  justify-content: center; /* Centers the icons */
   align-items: center;
-  position: relative;
-  left: 39%; /* Adjust as needed */
-  top: 20px; /* Optional: Positioning at the top */
+  gap: 25px; /* Adjusts spacing between icons */
+  padding: 10px 0;
+  position: fixed; /* Keeps navbar fixed at the top */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white; /* Ensures visibility */
+  z-index: 1000; /* Keeps navbar above other elements */
 }
 
-.navbar-icon{
-  color: black; /* Icon color */
+/* Navbar icons */
+.navbar-icon {
+  color: #333; /* Darker shade for better contrast */
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.navbar a:hover {
-  color: gray; /* Optional hover effect */
+/* Icon hover effect */
+.navbar-icon:hover {
+  color: #0077b5; /* LinkedIn blue on hover */
+  transform: scale(1.2); /* Slight zoom effect */
+}
+
+/* GitHub specific hover effect */
+.nav-container a:nth-child(2) .navbar-icon:hover {
+  color: #333; /* GitHub default color */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 767px) {
+  .nav-container {
+    gap: 15px;
+    top: 15px;
+  }
+
+  .navbar-icon {
+    font-size: 24px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .nav-container {
+    gap: 20px;
+  }
+}
+
+/* Footer container */
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 15px 20px;
+  background-color: #1a1a1a;  /* Dark background */
+  color: #ffffff;  /* White text */
+  font-size: 16px;
+  font-weight: 500;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect */
+.footer:hover {
+  background-color: #333; /* Slightly lighter */
+  transition: background 0.3s ease-in-out;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767px) {
+  .footer {
+      font-size: 14px;
+      padding: 12px;
+  }
 }
 
 

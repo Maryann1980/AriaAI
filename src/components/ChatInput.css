@@ -1,60 +1,92 @@
-/* Base styles */
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+  position: relative;
+  bottom: 100px;  
+}
+
+/* Input field styling */
+.chat-input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+/* Input focus effect */
+.chat-input:focus {
+  border-color: rgb(25, 135, 84);
+  box-shadow: 0 0 5px rgba(25, 135, 84, 0.3);
+}
+
+/* Send button styling */
 .send-button {
   background-color: rgb(25, 135, 84);
   color: white;
   padding: 12px 20px;
-  margin: 10px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 15px;
-}
-
-.chat-input {
-  padding: 12px 15px;
-  margin: 10px;
-  border-radius: 10px;
-  font-size: 15px;
-  border-width: 1px;
-  flex-grow: 1;
-}
-
-.chat-input-container {
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
   display: flex;
-  margin-bottom: 60px;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+/* Button hover effect */
+.send-button:hover {
+  background-color: rgb(20, 110, 70);
+}
+
+/* Button when disabled  or (loading) */
+.send-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Typing animation effect for button */
+@keyframes typingDots {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+  100% { content: "."; }
+}
+
+.send-button:disabled::after {
+  display: inline-block;
+  animation: typingDots 1s infinite;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 767px) {
-  .send-button {
-      padding: 10px 15px;
-      font-size: 14px;
-  }
-
-  .chat-input {
-      padding: 10px 12px;
-      font-size: 14px;
-  }
-
   .chat-input-container {
       flex-direction: column;
-      margin-bottom: 30px;
+      padding: 10px;
+      width: 90%;
+      margin-bottom: 60px;  /* Adds more space from bottom */
+      bottom: 30px; /* Further move it up */
   }
 }
 
 /* Tablet responsiveness */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .send-button {
-      padding: 11px 18px;
-      font-size: 14px;
-  }
-
-  .chat-input {
-      padding: 11px 14px;
-      font-size: 14px;
-  }
-
   .chat-input-container {
-      margin-bottom: 40px;
+      width: 80%;
+      bottom: 20px; /* Adjusts position */
   }
 }
